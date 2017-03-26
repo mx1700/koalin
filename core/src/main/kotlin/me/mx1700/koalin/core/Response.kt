@@ -13,7 +13,7 @@ interface Response {
 
     var body: Any?
 
-    var contentType: String
+    var contentType: String?
 
     var lastModified: Date?
 
@@ -30,7 +30,7 @@ interface Response {
 
 interface ResponseHeader: Iterable<Pair<String, String>> {
     operator fun get(name: String): String?
-    operator fun set(name: String, value: String)
+    operator fun set(name: String, value: String?)
     fun remove(name: String)
     fun contains(name: String): Boolean
     val length: Int
@@ -38,7 +38,7 @@ interface ResponseHeader: Iterable<Pair<String, String>> {
 
 interface ResponseCookies: Iterable<Cookie> {
     operator fun get(name: String): Cookie?
-    operator fun set(name: String, cookie: Cookie)
+    fun set(cookie: Cookie)
     operator fun set(name: String, value: String?)
     fun set(name: String, value: String?,
             path: String? = "/", domain: String? = null,
