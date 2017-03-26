@@ -36,7 +36,7 @@ class Request(
     override val queryString: String? = req.queryString
 
     override val cookies: Map<String, String> by lazy {
-        req.cookies.map { it.name to it.value }.toMap()
+        req.cookies?.map { it.name to it.value }?.toMap() ?: emptyMap()
     }
 
     override val host: String by lazy {
@@ -107,7 +107,7 @@ class Request(
     override val length: Long? = req.contentLengthLong
 
     /**
-     * 协议
+     * 协议   TODO:有歧义，servlet.protocol 返回的 http/1.1
      */
     override val protocol: String by lazy {
         when {
