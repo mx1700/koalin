@@ -9,7 +9,7 @@ typealias Next = () -> Unit
 typealias Middleware = (Context) -> Unit
 typealias OnException = Context.(Exception) -> Unit
 
-open class Application(
+abstract class Application(
         /**
          * 是否是通过代理访问，当设置为 true 的时候，会通过代理头获取 ip 和 host
          */
@@ -73,6 +73,8 @@ open class Application(
             next(0, ctx)
         } catch (err: Exception) {
             onExceptionAction.invoke(ctx, err)
+        } finally {
+            respond(ctx)
         }
     }
 
@@ -89,4 +91,6 @@ open class Application(
         }
         middleware(ctx)
     }
+
+    abstract fun respond(ctx: Context)
 }
