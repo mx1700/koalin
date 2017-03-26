@@ -1,4 +1,4 @@
-package mx.mx1700.koalin.servlet
+package me.mx1700.koalin.servlet
 
 import me.mx1700.koalin.core.Application
 import me.mx1700.koalin.core.Next
@@ -10,7 +10,7 @@ class Context(
         override val app: Application,
         val req: HttpServletRequest,
         val res: HttpServletResponse
-): CoreContext {
+): me.mx1700.koalin.core.Context {
 
     override val request: Request = Request(this)
     override val response: Response = Response(this)

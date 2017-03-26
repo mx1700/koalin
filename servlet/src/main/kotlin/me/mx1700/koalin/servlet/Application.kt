@@ -1,4 +1,4 @@
-package mx.mx1700.koalin.servlet
+package me.mx1700.koalin.servlet
 
 import me.mx1700.koalin.core.Context
 import java.io.InputStream
@@ -7,12 +7,12 @@ import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 import me.mx1700.koalin.core.Application as CoreApplication
 
-class Application(): CoreApplication() {
+class Application(): me.mx1700.koalin.core.Application() {
 
     val servlet: HttpServlet = Servlet()
 
     override fun respond(ctx: Context) {
-        val context = ctx as mx.mx1700.koalin.servlet.Context
+        val context = ctx as me.mx1700.koalin.servlet.Context
         val res = context.res
         val body = ctx.response.body
 
@@ -47,7 +47,7 @@ class Application(): CoreApplication() {
 
     inner class Servlet: HttpServlet() {
         override fun service(req: HttpServletRequest, resp: HttpServletResponse) {
-            val ctx = mx.mx1700.koalin.servlet.Context(this@Application, req, resp)
+            val ctx = me.mx1700.koalin.servlet.Context(this@Application, req, resp)
             callback(ctx)
         }
     }

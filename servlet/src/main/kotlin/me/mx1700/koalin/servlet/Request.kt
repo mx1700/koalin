@@ -1,11 +1,11 @@
-package mx.mx1700.koalin.servlet
+package me.mx1700.koalin.servlet
 
 import me.mx1700.koalin.TimeUtil
 import me.mx1700.koalin.core.Request as CoreRequest
 
 class Request(
         private val ctx: Context
-) : CoreRequest {
+) : me.mx1700.koalin.core.Request {
 
     val req = ctx.req
 

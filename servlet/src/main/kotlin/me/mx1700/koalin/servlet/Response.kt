@@ -1,4 +1,4 @@
-package mx.mx1700.koalin.servlet
+package me.mx1700.koalin.servlet
 
 import me.mx1700.koalin.TimeUtil
 import me.mx1700.koalin.core.Cookie
@@ -10,7 +10,7 @@ import me.mx1700.koalin.core.Response as CoreResponse
 
 class Response(
         private val ctx: Context
-): CoreResponse {
+): me.mx1700.koalin.core.Response {
 
     private val res = ctx.res
 
