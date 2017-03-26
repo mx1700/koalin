@@ -18,7 +18,7 @@ interface Request {
 
     val query: Map<String, String>
 
-    val queryString: String
+    val queryString: String?
 
     //TODO: 是否应该是 cookie 对象?
     val cookies: Map<String, String>
@@ -44,6 +44,6 @@ interface Request {
 
     val ips: Iterable<String>
 
-    val contentType: String
+    val contentType: String?
 
 }

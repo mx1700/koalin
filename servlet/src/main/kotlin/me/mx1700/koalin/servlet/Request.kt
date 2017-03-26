@@ -33,7 +33,7 @@ class Request(
         req.parameterNames.asSequence().map { it to req.getParameter(it) }.toMap()
     }
 
-    override val queryString: String = req.queryString
+    override val queryString: String? = req.queryString
 
     override val cookies: Map<String, String> by lazy {
         req.cookies.map { it.name to it.value }.toMap()
@@ -130,5 +130,5 @@ class Request(
             emptyList()
     }
 
-    override val contentType: String = req.contentType
+    override val contentType: String? = req.contentType
 }
