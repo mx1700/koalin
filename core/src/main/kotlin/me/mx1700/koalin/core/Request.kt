@@ -36,6 +36,10 @@ interface Request {
 
     val charset: String?
 
+    val length: Long?
+
+    val protocol: String
+
     val secure: Boolean
 
     val ips: Iterable<String>

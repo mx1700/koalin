@@ -24,7 +24,7 @@ open class Application(
     /**
      * callback 的引用
      */
-    val callback: (Request, Response) -> Context = this::callback
+    val callback: (Context) -> Unit = this::callback
 
     /**
      * 中间件列表
@@ -68,15 +68,12 @@ open class Application(
     /**
      * 开始执行中间件
      */
-    private fun callback(request: Request,
-                         response: Response): Context {
-        val ctx = Context(this, request, response)
+    private fun callback(ctx: Context) {
         try {
             next(0, ctx)
         } catch (err: Exception) {
             onExceptionAction.invoke(ctx, err)
         }
-        return ctx
     }
 
     /**
