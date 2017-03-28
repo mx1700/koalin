@@ -2,4 +2,6 @@ rootProject.name = 'main'
 include 'core'
 include 'servlet'
 include 'jetty'
+include 'router'
+include 'sample'
 
