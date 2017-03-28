@@ -17,11 +17,7 @@ class Router(): Middleware {
         val method = ctx.request.method
 
         val matches = matcher.matches(method, path).iterator()
-        if (matches.hasNext()) {
-            next(matches, ctx)
-        } else {
-            ctx.response.status = 404
-        }
+        next(matches, ctx)
         ctx.next()
     }
 
@@ -37,6 +33,8 @@ class Router(): Middleware {
             if (body != null && body != kotlin.Unit) {
                 ctx.response.body = action(routeCtx)
             }
+        } else {
+            ctx.response.status = 404
         }
     }
 

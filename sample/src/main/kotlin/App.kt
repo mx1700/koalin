@@ -16,7 +16,8 @@ fun main(args: Array<String>) {
         }
 
         get("/user[/{name}]") {
-            "hello ${params["name"]}"
+            val name = params["name"] ?: "world"
+            "hello $name"
         }
     }
     app.listen(9000)
