@@ -30,7 +30,7 @@ class Router(): Middleware {
                 next(matches, ctx)
             }
             val body = action(routeCtx)
-            if (body != null && body != kotlin.Unit) {
+            if (body != kotlin.Unit) {
                 ctx.response.body = action(routeCtx)
             }
         } else {
